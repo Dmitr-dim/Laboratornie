@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductManager
 {
-    public class CalendarForm : Form
+    public partial class CalendarForm : Form
     {
         private CalendarManager calendarManager;
         private DateTimePicker datePicker;
@@ -108,8 +101,7 @@ namespace ProductManager
             }
             string selectedItem = eventsListBox.SelectedItem.ToString();
             DateTime date;
-            if (DateTime.TryParse(selectedItem.Split(new[] { '-' }, StringSplitOptions.None)[0], out
-    date))
+            if (DateTime.TryParse(selectedItem.Split(new[] { '-' }, StringSplitOptions.None)[0], out date))
             {
                 var eventToRemove = calendarManager.Events.Find(ex => ex.Date == date);
                 if (eventToRemove != null)
